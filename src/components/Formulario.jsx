@@ -16,16 +16,18 @@ const InputSubmit = styled.input`
     &:hover {
         background-color: #7A7DFE;
         cursor: pointer;
-
     }
 `
 
 const Formulario = () => {
-    const [selectMonedas] = useSelectMonedas()
-    selectMonedas()
+    const [SelectMonedas] = useSelectMonedas('Elije tu Moneda') /* Le paso como valor inicial el select  */
+    const [SelectCriptomonedas] = useSelectMonedas('Elije tu Criptomoneda')
 
     return (
         <form>
+            <SelectMonedas/>
+
+            <SelectCriptomonedas/>
 
             <InputSubmit
                 type="submit"

@@ -1,3 +1,4 @@
+import { useState } from "react" /* La principal ventaja de crear un custon hook es el acceso a todas las herramientas de React */
 import styled from "@emotion/styled"
 
 const Label = styled.label`
@@ -16,11 +17,16 @@ const Select = styled.select`
     border-radius: 10px;
 `
 
-const useSelectMonedas = (label, opciones) => { /* Coloco como primer parémetro el label */
+const useSelectMonedas = (label, opciones) => { /* Coloco como primer parémetro el label y el segundo las opciones que vienen del archivo monedas */
+    const [state, setState] = useState('')
+
     const SelectMonedas = () => (
         <>
             <Label>{label}</Label> {/* Usando {label} injecto el parámetro cuyo valor será el que asignamos en en el formulario */}
-            <Select name="" id="">
+            <Select
+                value={state} /* El value será el state que contenga el componente, de ese modo se podrá reutilizar en cualquier useState */
+                onChange={e => setState(e.target.value)}
+            >
                 <option value="">Seleccione</option>
 
                 {opciones.map(opcion => ( /* Mapeando el arreglo monedas construyo el select */
@@ -35,6 +41,6 @@ const useSelectMonedas = (label, opciones) => { /* Coloco como primer parémetro
         </>
     )
 
-    return [SelectMonedas]
+    return [state, SelectMonedas]
 }
 export default useSelectMonedas

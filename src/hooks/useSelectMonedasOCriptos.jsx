@@ -17,7 +17,7 @@ const Select = styled.select`
     border-radius: 10px;
 `
 
-const useSelectMonedas = (label, opciones) => { /* Coloco como primer parémetro el label y el segundo las opciones que vienen del archivo monedas */
+const useSelectMonedasOCriptos = (label, opciones) => { /* Coloco como primer parémetro el label y el segundo las opciones que vienen del archivo monedas */
     const [state, setState] = useState('')
 
     const SelectMonedas = () => (
@@ -43,4 +43,4 @@ const useSelectMonedas = (label, opciones) => { /* Coloco como primer parémetro
 
     return [state, SelectMonedas]
 }
-export default useSelectMonedas
+export default useSelectMonedasOCriptos

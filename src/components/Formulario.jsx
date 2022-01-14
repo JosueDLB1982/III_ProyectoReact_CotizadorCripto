@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import styled from "@emotion/styled"
-import useSelectMonedas from "../hooks/useSelectMonedas"
+import useSelectMonedasOCriptos from "../hooks/useSelectMonedasOCriptos"
 import { monedas } from "../data/monedas"
 
 const InputSubmit = styled.input`
@@ -25,8 +25,8 @@ const InputSubmit = styled.input`
 const Formulario = () => {
     const [criptos, setCriptos] = useState([])
 
-    const [moneda, SelectMonedas] = useSelectMonedas('Elige tu Moneda', monedas) /* Las opciones vendrán del arreglo de objetos monedas */
-    const [criptomoneda, SelectCriptomoneda] = useSelectMonedas('Elige tu Criptomoneda', criptos)
+    const [moneda, SelectMonedas] = useSelectMonedasOCriptos('Elige tu Moneda', monedas) /* Las opciones vendrán del arreglo de objetos monedas */
+    const [criptomoneda, SelectCriptomoneda] = useSelectMonedasOCriptos('Elige tu Criptomoneda', criptos)
 
     useEffect(() => {
         const consultarAPI = async () => {

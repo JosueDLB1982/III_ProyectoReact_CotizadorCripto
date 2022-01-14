@@ -11,7 +11,7 @@ const Mensaje = styled.div`
     text-align: center;
 `
 
-const Error = ({children}) => {
+const Error = ({ children }) => {
     return (
         <Mensaje>
             {children}

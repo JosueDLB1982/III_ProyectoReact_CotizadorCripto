@@ -5,13 +5,13 @@ const Contenedor = styled.div`
     font-family: 'Lato', sans-serif;
     display: flex;
     align-items: center;
+    gap: 1rem;
+    margin-top: 30px;
 `
 
 const Img = styled.img`
     display: block;
     width: 120px;
-    gap: 1rem;
-    margin: auto;
 `
 
 const Texto = styled.p`
@@ -27,8 +27,8 @@ const Precio = styled.p`
     }
 `
 
-const Cotizacion = ({cotizacion}) => {
-    const {PRICE, HIGHDAY, LOWDAY, CHANGEPCT24HOUR, IMAGEURL, LASTUPDATE} = cotizacion
+const Cotizacion = ({ cotizacion }) => {
+    const { PRICE, HIGHDAY, LOWDAY, CHANGEPCT24HOUR, IMAGEURL, LASTUPDATE } = cotizacion
     return (
         <Contenedor>
             <Img

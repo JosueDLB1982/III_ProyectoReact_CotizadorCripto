@@ -23,7 +23,7 @@ const InputSubmit = styled.input`
     }
 `
 
-const Formulario = ({setMonedas}) => {
+const Formulario = ({ setMonedas }) => {
     const [criptos, setCriptos] = useState([])
     const [error, setError] = useState(false)
 
@@ -51,7 +51,7 @@ const Formulario = ({setMonedas}) => {
 
     const handleSubmit = e => {
         e.preventDefault()                        /* Validamos por el método .includes() si alguno de los select está vacío */
-        if([moneda, criptomoneda].includes('')) {  /*Puesto que en nuestro custon hook retornamos el state, tenemos acceso aquí a moneda y criptomoneda*/
+        if ([moneda, criptomoneda].includes('')) {  /*Puesto que en nuestro custon hook retornamos el state, tenemos acceso aquí a moneda y criptomoneda*/
             setError(true)
             setTimeout(() => {
                 setError(false)
@@ -67,19 +67,19 @@ const Formulario = ({setMonedas}) => {
 
     return (
         <>
-        {error && <Error>Todos los campos son requeridos</Error>}
-        
-        <form
-            onSubmit={handleSubmit}
-        >
-            <SelectMonedas/>
-            <SelectCriptomoneda/>
+            {error && <Error>Todos los campos son requeridos</Error>}
 
-            <InputSubmit
-                type="submit"
-                value="cotizar"
-            />
-        </form>
+            <form
+                onSubmit={handleSubmit}
+            >
+                <SelectMonedas />
+                <SelectCriptomoneda />
+
+                <InputSubmit
+                    type="submit"
+                    value="cotizar"
+                />
+            </form>
         </>
     )
 }

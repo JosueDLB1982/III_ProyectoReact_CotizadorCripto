@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import styled from '@emotion/styled'
+import Spinner from './components/Spinner'
 import Formulario from './components/Formulario'
 import Cotizacion from './components/Cotizacion'
 import ImagenCripto from './img/imagen-criptos.png'
@@ -43,15 +44,21 @@ const Heading = styled.h1`
 function App() {
   const [monedas, setMonedas] = useState({})
   const [cotizacion, setCotizacion] = useState({})
+  const [cargando, setCargando] = useState(false)
 
   useEffect(() => {
-    if(Object.keys(monedas).length > 0) {
-      const {moneda, criptomoneda} = monedas
+    if (Object.keys(monedas).length > 0) {
+      setCargando(true)
+      setCotizacion({})
+
+      const { moneda, criptomoneda } = monedas
       const cotizarCripto = async () => {
         const url = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${criptomoneda}&tsyms=${moneda}` /* Esto hará que se consulte la API según las opciones que elija el usuario */
         const respuesta = await fetch(url)
         const resultado = await respuesta.json()
         setCotizacion(resultado.DISPLAY[criptomoneda][moneda]) /* Para hacerlo dinámico usamos esta sintaxis, que nos permite inyectar las keys dinámicamente, esas las podemos ver en la estructura de la respuesta de la API */
+
+        setCargando(false)
       }
       cotizarCripto()
     }
@@ -71,7 +78,8 @@ function App() {
           setMonedas={setMonedas}
         />
 
-        {cotizacion.PRICE && <Cotizacion cotizacion={cotizacion}/>}
+        {cargando && <Spinner />}
+        {cotizacion.PRICE && <Cotizacion cotizacion={cotizacion} />}
       </div>
 
     </Contenedor>

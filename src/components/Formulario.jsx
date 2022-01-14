@@ -61,7 +61,7 @@ const Formulario = ({setMonedas}) => {
         setError(false)
         setMonedas({
             moneda,
-            criptomoneda,
+            criptomoneda
         })
     }
 

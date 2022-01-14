@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import styled from '@emotion/styled'
 import Formulario from './components/Formulario'
+import Cotizacion from './components/Cotizacion'
 import ImagenCripto from './img/imagen-criptos.png'
 
 const Contenedor = styled.div`
@@ -69,6 +70,8 @@ function App() {
         <Formulario
           setMonedas={setMonedas}
         />
+
+        {cotizacion.PRICE && <Cotizacion cotizacion={cotizacion}/>}
       </div>
 
     </Contenedor>

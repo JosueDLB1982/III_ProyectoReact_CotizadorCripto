@@ -41,6 +41,6 @@ const useSelectMonedasOCriptos = (label, opciones) => { /* Coloco como primer pa
         </>
     )
 
-    return [state, SelectMonedas]
+    return [state, SelectMonedas] /* retornar el state nos permitira usarlo en el <Formulario/> */
 }
 export default useSelectMonedasOCriptos

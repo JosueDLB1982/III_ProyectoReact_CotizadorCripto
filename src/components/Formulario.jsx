@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import styled from "@emotion/styled"
+import Error from "./Error"
 import useSelectMonedasOCriptos from "../hooks/useSelectMonedasOCriptos"
 import { monedas } from "../data/monedas"
 
@@ -24,6 +25,7 @@ const InputSubmit = styled.input`
 
 const Formulario = () => {
     const [criptos, setCriptos] = useState([])
+    const [error, setError] = useState(false)
 
     const [moneda, SelectMonedas] = useSelectMonedasOCriptos('Elige tu Moneda', monedas) /* Las opciones vendrán del arreglo de objetos monedas */
     const [criptomoneda, SelectCriptomoneda] = useSelectMonedasOCriptos('Elige tu Criptomoneda', criptos)
@@ -47,8 +49,25 @@ const Formulario = () => {
         consultarAPI()
     }, []) /* Al no pasar dependencia se ejecuta una sola vez */
 
+    const handleSubmit = e => {
+        e.preventDefault()                        /* Validamos por el método .includes() si alguno de los select está vacío */
+        if([moneda, criptomoneda].includes('')) {  /*Puesto que en nuestro custon hook retornamos el state, tenemos acceso aquí a moneda y criptomoneda*/
+            setError(true)
+            setTimeout(() => {
+                setError(false)
+            }, 1500);
+            return
+        }
+        setError(false)
+    }
+
     return (
-        <form>
+        <>
+        {error && <Error>Todos los campos son requeridos</Error>}
+        
+        <form
+            onSubmit={handleSubmit}
+        >
             <SelectMonedas/>
             <SelectCriptomoneda/>
 
@@ -57,6 +76,7 @@ const Formulario = () => {
                 value="cotizar"
             />
         </form>
+        </>
     )
 }
 

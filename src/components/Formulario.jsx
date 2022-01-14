@@ -7,6 +7,7 @@ const InputSubmit = styled.input`
     border: none;
     width: 100%;
     padding: 10px;
+    margin-top: 30px;
     color: #FFF;
     font-weight: 700;
     text-transform: uppercase;
@@ -21,7 +22,7 @@ const InputSubmit = styled.input`
 `
 
 const Formulario = () => {
-    const [SelectMonedas] = useSelectMonedas('Elije tu Moneda', monedas) /* Las opciones vendrán del arreglo de objetos monedas */
+    const [SelectMonedas] = useSelectMonedas('Elige tu Moneda', monedas) /* Las opciones vendrán del arreglo de objetos monedas */
 
     return (
         <form>

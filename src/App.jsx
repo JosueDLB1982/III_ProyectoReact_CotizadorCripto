@@ -41,6 +41,14 @@ const Heading = styled.h1`
   }
 `
 
+const Personalizacion = styled.h3`
+  font-family: 'Lato', sans-serif;
+  color: gray;
+  text-align: center;
+  font-weight: 700;
+  font-size: 15px;
+`
+
 function App() {
   const [monedas, setMonedas] = useState({})
   const [cotizacion, setCotizacion] = useState({})
@@ -74,6 +82,7 @@ function App() {
 
       <div>
         <Heading>Cotiza Criptomonedas al Instante</Heading>
+        <Personalizacion>Josue Lopez Developer Treinee</Personalizacion>
         <Formulario
           setMonedas={setMonedas}
         />

@@ -82,7 +82,7 @@ function App() {
 
       <div>
         <Heading>Cotiza Criptomonedas al Instante</Heading>
-        <Personalizacion>Josue Lopez Developer Treinee</Personalizacion>
+        <Personalizacion>Josue Lopez - Developer Treinee</Personalizacion>
         <Formulario
           setMonedas={setMonedas}
         />

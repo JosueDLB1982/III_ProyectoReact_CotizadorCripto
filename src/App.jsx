@@ -28,7 +28,7 @@ const Heading = styled.h1`
   text-align: center;
   font-weight: 700;
   margin-top: 80px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   font-size: 34px;
 
   &::after {
@@ -41,12 +41,18 @@ const Heading = styled.h1`
   }
 `
 
-const Personalizacion = styled.h3`
+const Personalizacion = styled.a`
+  display: block;
   font-family: 'Lato', sans-serif;
   color: gray;
   text-align: center;
   font-weight: 700;
   font-size: 15px;
+  margin-top: 20px;
+
+  &:hover {
+      color: greenyellow; 
+  }
 `
 
 function App() {
@@ -82,7 +88,7 @@ function App() {
 
       <div>
         <Heading>Cotiza Criptomonedas al Instante</Heading>
-        <Personalizacion>Josue Lopez - Developer Treinee</Personalizacion>
+        <Personalizacion href="https://github.com/JosueDLB1982" target="blanck">Josue Lopez - Developer Treinee</Personalizacion>
         <Formulario
           setMonedas={setMonedas}
         />
